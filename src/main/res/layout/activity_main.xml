@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_main"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="com.example.cateyeapp.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.example.cateyeapp.module.commum.MainActivity">
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|center_horizontal"
         android:orientation="horizontal">
         <LinearLayout
             android:id="@+id/movie_ll"
@@ -19,7 +25,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a37"/>
+                android:src="@drawable/home_button_bar_movie"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,12 +42,12 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a37"/>
+                android:src="@drawable/home_button_bar_cinema"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_12sp"
-                android:text="@string/home_button_bar_movie"/>
+                android:text="@string/home_button_bar_cinema"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/discover_ll"
@@ -53,12 +59,12 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a37"/>
+                android:src="@drawable/home_button_bar_discover"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_12sp"
-                android:text="@string/home_button_bar_movie"/>
+                android:text="@string/home_button_bar_discover"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/my_ll"
@@ -70,13 +76,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a37"/>
+                android:src="@drawable/home_button_bar_me"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/home_button_bar_movie"
+                android:text="@string/home_button_bar_me"
                 android:textSize="@dimen/text_size_12sp"/>
         </LinearLayout>
 
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

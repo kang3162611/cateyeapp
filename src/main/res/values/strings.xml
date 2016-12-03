@@ -1,7 +1,18 @@
 <resources>
+    <string-array name="sections">
+        <item>@string/hone_tablayout_title_hot</item>
+        <item>@string/hone_tablayout_title_wait</item>
+        <item>@string/hone_tablayout_title_search</item>
+    </string-array>
+    
     <string name="app_name">cateyeapp</string>
     <string name="home_button_bar_movie">电影</string>
     <string name="home_button_bar_cinema">影院</string>
     <string name="home_button_bar_discover">发现</string>
     <string name="home_button_bar_me">我的</string>
+
+    <string name="hone_tablayout_title_hot">热映</string>
+    <string name="hone_tablayout_title_wait">待映</string>
+    <string name="hone_tablayout_title_search">找片</string>
+    <string name="home_hot_movie_mush_watch_people">$%1d人想看</string>
 </resources>

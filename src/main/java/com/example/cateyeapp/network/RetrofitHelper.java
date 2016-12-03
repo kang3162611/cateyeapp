@@ -1,6 +1,7 @@
 package com.example.cateyeapp.network;
 
 import com.example.cateyeapp.CateeyeApp;
+import com.example.cateyeapp.network.api.HotMovieService;
 import com.example.cateyeapp.utils.CommonUtil;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
@@ -15,6 +16,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Administrator on 2016/11/28.
@@ -32,6 +36,19 @@ public class RetrofitHelper {
       initOKHttpClient();
         }
 
+    /**
+     * 获取首页热映列表
+     * @return
+     */
+    public static HotMovieService getHotMovieApi(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API_BASE_URL)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        return retrofit.create(HotMovieService.class);
+    }
 
     /**
      * 初始化OKHttpClient,设置缓存,设置超时时间,设置打印日志,设置UA拦截器
@@ -46,10 +63,10 @@ public class RetrofitHelper {
 
                 if (okHttpClient == null){
                     okHttpClient = new OkHttpClient.Builder()
-                            .cache(cache)
+//                            .cache(cache)
                             .addInterceptor(httpLoggingInterceptor)
                             .addNetworkInterceptor(new StethoInterceptor())
-                            .addNetworkInterceptor(new CacheInterceptor())
+//                            .addNetworkInterceptor(new CacheInterceptor())
                             .retryOnConnectionFailure(true)
                             .connectTimeout(30, TimeUnit.SECONDS)
                             .writeTimeout(20, TimeUnit.SECONDS)
